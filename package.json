@@ -6,7 +6,7 @@
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "install-all": "npm install --prefix server && npm install --prefix client",
     "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client && npm run generate --prefix server",
-    "start": "npm run migrate --prefix server && npm run seed --prefix server && npm start --prefix server"
+    "start": "node -e \"console.log('ENV KEYS:', Object.keys(process.env).includes('DATABASE_URL') ? 'DATABASE_URL IS SET' : 'DATABASE_URL IS MISSING')\" && npm run migrate --prefix server && npm run seed --prefix server && npm start --prefix server"
   },
   "dependencies": {},
   "devDependencies": {
